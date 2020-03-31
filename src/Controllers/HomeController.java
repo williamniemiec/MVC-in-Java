@@ -1,5 +1,6 @@
-package Controllers;
+package controllers;
 
+import controllers.Controller;
 
 public class HomeController implements Controller 
 {

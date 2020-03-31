@@ -1,5 +1,5 @@
-import Controllers.Controller;
-import Controllers.HomeController;
+import controllers.Controller;
+import controllers.HomeController;
 
 
 public class Main 

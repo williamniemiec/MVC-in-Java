@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.FileDialog;
 import java.awt.Frame;
@@ -8,7 +8,8 @@ import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
-import Controllers.HomeController;
+import controllers.HomeController;
+import views.View;
 
 
 public class HomeView implements View 

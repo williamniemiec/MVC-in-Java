@@ -1,5 +1,6 @@
-package Views;
+package views;
 
+import views.View;
 
 public class View1 implements View 
 {

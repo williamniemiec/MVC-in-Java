@@ -1,9 +1,11 @@
-package Controllers;
+package controllers;
 
 import java.io.File;
 import java.util.List;
-import Models.FileParser;
-import Views.HomeView;
+
+import controllers.Controller;
+import models.FileParser;
+import views.HomeView;
 
 
 public class HomeController implements Controller 
