@@ -4,7 +4,9 @@
 ![](https://github.com/williamniemiec/MVC-in-Java/)
 
 This project aims to provide a MVC Java framework for you to use in your projects. If you want to see an example there is a simple and complete example about a scheduler in "example" folder.
+
 <hr />
+
 ## What is MVC?
 Briefly, MVC (Model View Controller) is a design pattern widely used in projects because it leaves the project structured in order to facilitate the identification of application modules, understand how it is structured, in addition to facilitating maintenance.
 
@@ -25,15 +27,16 @@ In `src` folder is all what you need to apply this pattern in your project.
 ### Models
 Just create your modal class and put it in `models` folder.
 ### Views
-Views should implement [View interface](). This interface just have one method that must be implemented: "close".
+Views should implement [View interface](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/views/View.java). This interface just have one method that must be implemented: "close".
 ### Controllers
-Controllers also should implement an interface: [Controller interface](). This interface also have one method that must be implemented: "run".
-
+Controllers also should implement an interface: [Controller interface](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/controllers/Controller.java). This interface also have one method that must be implemented: "run".
 
 ## Application execution
-To execute the application just run [Main class]( ). It will execute [HomeController]( ) (that will execute [HomeView]( )).
+To execute the application just run [Main class](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/Main.java). It will execute [HomeController](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/controllers/HomeController.java) (that will execute [HomeView](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/views/HomeView.java)).
 
 ## Project organization
+![UML Diagram](https://github.com/williamniemiec/MVC-in-Java/blob/master/media/uml/uml.png)
+
 The MVC structure is in `src` folder. In it, there are three folders and one files.
 
 ### /
@@ -56,4 +59,4 @@ The MVC structure is in `src` folder. In it, there are three folders and one fil
 | Main&#46;java | `File`| File responsible for starting the application
 
 ## Example
-To be clear how the framework works I made a small application that consists of a scheduler, being possible to create new events and see the ones already created. It is located in [example]( ) folder.
+To be clear how the framework works I made a small application that consists of a scheduler, being possible to create new events and see the ones already created. It is located in [example](https://github.com/williamniemiec/MVC-in-Java/tree/master/example) folder.
