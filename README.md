@@ -30,7 +30,7 @@ Views should implement [View interface](https://github.com/williamniemiec/MVC-in
 ### Controllers
 Controllers also should implement an interface: [Controller interface](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/controllers/Controller.java). This interface also have one method that must be implemented: "run".
 
-## Overview of an MVC structure
+## Overview of a generic MVC Java framework structure
 ![](https://github.com/williamniemiec/MVC-in-Java/blob/master/media/uml/uml.png)
 
 ## Application execution
