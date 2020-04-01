@@ -1,8 +1,10 @@
 # MVC in Java
-![](https://github.com/williamniemiec/MVC-in-Java/)
+![](https://github.com/williamniemiec/MVC-in-Java/tree/master/media/logo/mvc-in-java_logo.png)
 
 This project aims to provide an MVC Java framework for you to use in your projects. If you want to see an example there is a simple and complete example about a scheduler in "example" folder.
+
 <hr />
+
 ## What is MVC?
 Briefly, MVC (Model View Controller) is a design pattern widely used in projects because it leaves the project structured in order to facilitate the identification of application modules, understand how it is structured, in addition to facilitating maintenance.
 
@@ -20,6 +22,7 @@ This project adopted the following naming pattern:
 In `src` folder is all what you need to apply this pattern in your project. 
 
 ## How to create new models, views and controllers?
+
 ### Models
 Just create your modal class and put it in `models` folder.
 ### Views
