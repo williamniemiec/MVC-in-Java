@@ -7,5 +7,8 @@ package controllers;
  */
 public interface Controller 
 {	
+	/**
+	 * Executes controller and associated view with it.
+	 */
 	public void run();
 }

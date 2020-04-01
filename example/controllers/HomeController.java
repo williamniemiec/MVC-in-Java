@@ -5,21 +5,36 @@ import views.HomeView;
 import views.NewEventView;
 
 
+/**
+ * Main controller. It will be responsible for program's main screen behavior.
+ */
 public class HomeController implements Controller 
 {
-	private EventListController eventListController;
-	private NewEventController newEventController;
+	//-----------------------------------------------------------------------
+	//		Attributes
+	//-----------------------------------------------------------------------
+	private HomeView home;
+	private EventListController eventListController = new EventListController();
+	private NewEventController newEventController = new NewEventController(eventListController);
 	
 	
+	//-----------------------------------------------------------------------
+	//		Methods
+	//-----------------------------------------------------------------------
+	@Override
 	public void run()
 	{
-		eventListController = new EventListController();
-		newEventController = new NewEventController(eventListController);
+		eventListController.run();
+		newEventController.run();
 		
-		HomeView home = new HomeView(this);
+		home = new HomeView(this);
 		home.run();
 	}
 	
+	
+	//-----------------------------------------------------------------------
+	//		Getters
+	//-----------------------------------------------------------------------
 	public EventListView getEventListView()
 	{
 		return eventListController.getView();

@@ -8,29 +8,46 @@ import javax.swing.border.EmptyBorder;
 import controllers.HomeController;
 
 
+/**
+ * View associated with HomeController. It will be responsible for program's 
+ * main screen view.
+ */
 @SuppressWarnings("serial")
 public class HomeView extends JFrame implements View
-{	
+{
+	//-----------------------------------------------------------------------
+	//		Attributes
+	//-----------------------------------------------------------------------
 	private HomeController homeController;
 	private JPanel contentPane;
 	
 	
+	//-----------------------------------------------------------------------
+	//		Constructor
+	//-----------------------------------------------------------------------
+	/**
+	 * @param homeController Controller of this view
+	 */
 	public HomeView(HomeController homeController) 
 	{
 		this.homeController = homeController;
 		
 		make_frame();
-		make_eventsList();
+		make_tabs();
 	}
 	
-	public void run()
-	{
-		this.setVisible(true);
-	}
 
-	@Override
-	public void close() { this.close(); }
+	//-----------------------------------------------------------------------
+	//		Methods
+	//-----------------------------------------------------------------------
+	/**
+	 * Displays home view on screen.
+	 */
+	public void run() { this.setVisible(true); }
 	
+	/**
+	 * Creates view's frame.
+	 */
 	private void make_frame()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,11 +58,17 @@ public class HomeView extends JFrame implements View
 		setContentPane(contentPane);
 	}
 	
-	private void make_eventsList()
+	/**
+	 * Creates tab navigation.
+	 */
+	private void make_tabs()
 	{
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("New event", homeController.getNewEventView());
 		tabbedPane.addTab("Events", homeController.getEventListView());
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 	}
+	
+	@Override
+	public void close() { this.close(); }
 }
