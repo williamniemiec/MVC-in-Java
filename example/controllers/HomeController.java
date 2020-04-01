@@ -1,28 +1,32 @@
 package controllers;
 
-import java.io.File;
-import java.util.List;
-
-import controllers.Controller;
-import models.FileParser;
+import views.EventListView;
 import views.HomeView;
+import views.NewEventView;
 
 
 public class HomeController implements Controller 
 {
+	private EventListController eventListController;
+	private NewEventController newEventController;
+	
+	
 	public void run()
 	{
-		System.out.println("HomeController");
-		System.out.println("Calling homeController");
-		HomeView homeView = new HomeView(this);
-		homeView.show();
-		homeView.close();
+		eventListController = new EventListController();
+		newEventController = new NewEventController(eventListController);
+		
+		HomeView home = new HomeView(this);
+		home.run();
 	}
 	
-	public List<String> parseFile(File f)
+	public EventListView getEventListView()
 	{
-		FileParser fp = new FileParser(f);
-		
-		return fp.getAllUpperCaseWords();
+		return eventListController.getView();
+	}
+	
+	public NewEventView getNewEventView()
+	{
+		return newEventController.getView();
 	}
 }

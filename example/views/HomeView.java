@@ -1,62 +1,51 @@
 package views;
 
-import java.awt.FileDialog;
-import java.awt.Frame;
-import java.io.File;
-import java.util.List;
-
-import javax.swing.JFileChooser;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
-
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.border.EmptyBorder;
 import controllers.HomeController;
-import views.View;
 
 
-public class HomeView implements View 
+@SuppressWarnings("serial")
+public class HomeView extends JFrame implements View
 {	
 	private HomeController homeController;
+	private JPanel contentPane;
+	
 	
 	public HomeView(HomeController homeController) 
 	{
 		this.homeController = homeController;
+		
+		make_frame();
+		make_eventsList();
 	}
 	
-	@Override
-	public void show() 
+	public void run()
 	{
-		System.out.println("HomeView");
-		List<String> words = null;
-		String selectedFilePath = showFileDialog();
-		
-		if (selectedFilePath != null) {
-			System.out.println("Loading...");
-			File selectedFile = new File(selectedFilePath);
-			words = homeController.parseFile(selectedFile);
-		}
-		
-		if (words != null) {
-			System.out.println("Words in upper case");
-			System.out.println(words);
-		} else {
-			System.out.println("There are not words in upper case");
-		}
+		this.setVisible(true);
 	}
 
 	@Override
-	public void close() 
+	public void close() { this.close(); }
+	
+	private void make_frame()
 	{
-		System.out.println("Exiting...");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 463, 344);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
 	}
 	
-	private String showFileDialog()
+	private void make_eventsList()
 	{
-		Frame frame = new Frame();		
-		FileDialog dialog = new FileDialog(frame, "Select File to Open");
-		dialog.setMode(FileDialog.LOAD);
-		dialog.setVisible(true);
-		
-		frame.dispose();
-		
-		return dialog.getFile();
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("New event", homeController.getNewEventView());
+		tabbedPane.addTab("Events", homeController.getEventListView());
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
 	}
 }
