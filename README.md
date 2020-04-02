@@ -6,7 +6,13 @@ This project aims to provide an MVC Java framework for you to use in your projec
 <hr />
 
 ## What is MVC?
-Briefly, MVC (Model View Controller) is a design pattern widely used in projects because it leaves the project structured in order to facilitate the identification of application modules, understand how it is structured, in addition to facilitating maintenance.
+Briefly, MVC (Model View Controller) is a design pattern widely used in projects because it leaves the project structured in order to facilitate the identification of application modules, understand how it is structured, in addition to facilitating maintenance. It structures the project in three modules:
+
+|Name| Funcion
+|------- | -------------- 
+|Models | Responsible for business logic
+|View | Responsible for the visual part
+|Controllers | Responsible for the behavior of the visual part
 
 ### Nomenclature
 This project adopted the following naming pattern:
@@ -53,9 +59,9 @@ The MVC structure is in `src` folder. In it, there are three folders and one fil
 ### /src
 |Name| Type| Function
 |------- | --- | ----
-| controllers | `Directory`| Contains all application controllers
-| models | `Directory`| Contains all model application classes
-| views | `Directory`| Contains all responsible classes for the visual of the application
+| controllers | `Directory`| Contains all application controller classes
+| models | `Directory`| Contains all application model classes
+| views | `Directory`| Contains all application view classes
 | Main&#46;java | `File`| File responsible for starting the application
 
 ## Example
