@@ -65,7 +65,7 @@ public class NewEventView extends JPanel implements View
 	//		Methods
 	//-----------------------------------------------------------------------
 	@Override
-	public void close() { this.close(); }
+	public void close() {  }
 	
 	/**
 	 * Reset all fields.

@@ -53,5 +53,5 @@ public class EventListView extends JPanel implements View
 
 
 	@Override
-	public void close() { this.close(); }
+	public void close() { }
 }

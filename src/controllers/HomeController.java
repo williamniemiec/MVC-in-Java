@@ -1,21 +1,34 @@
 package controllers;
 
-import controllers.Controller;
+import java.awt.Component;
+import java.io.File;
+import javax.swing.JMenuItem;
+import core.Controller;
 import views.HomeView;
 
 
 /**
  * Main controller. It will be responsible for program's main screen behavior.
  */
-public class HomeController implements Controller 
+public class HomeController extends Controller 
 {
-	@SuppressWarnings("unused")
+	//-----------------------------------------------------------------------
+	//		Attributes
+	//-----------------------------------------------------------------------
 	private HomeView homeView;
 	
 	
+	//-----------------------------------------------------------------------
+	//		Methods
+	//-----------------------------------------------------------------------
 	@Override
 	public void run()
 	{
-		homeView = new HomeView(this);
+		// Initialize HomeView
+		homeView = new HomeView(this, mainFrame);
+		addView("HomeView", homeView);
+		
+		// Displays the program window
+		mainFrame.setVisible(true);
 	}
 }

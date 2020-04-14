@@ -70,5 +70,5 @@ public class HomeView extends JFrame implements View
 	}
 	
 	@Override
-	public void close() { this.close(); }
+	public void close() {  }
 }
