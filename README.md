@@ -1,5 +1,5 @@
 # MVC in Java
-![](https://github.com/williamniemiec/MVC-in-Java/blob/master/media/logo/mvc-in-java_logo.jpg)
+![](https://github.com/williamniemiec/MVC-in-Java/blob/master/media/logo/mvc-in-java_logo.jpg?raw=true)
 
 This project aims to provide an MVC Java framework for you to use in your projects. If you want to see an example there is a simple and complete example about a scheduler in "example" folder.
 
@@ -13,6 +13,11 @@ Briefly, MVC (Model View Controller) is a design pattern widely used in projects
 |Models | Responsible for business logic
 |View | Responsible for the visual part
 |Controllers | Responsible for the behavior of the visual part
+
+This project is based on book [Head First design patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/). Below are some illustrations from this book about how MVC works.
+![generalView1](https://github.com/williamniemiec/MVC-in-Java/blob/master/media/example/GeneralView.jpg?raw=true)
+![generalView2](https://github.com/williamniemiec/MVC-in-Java/blob/master/media/example/GeneralView2.png?raw=true)
+
 
 ### Nomenclature
 This project adopted the following naming pattern:
@@ -30,7 +35,7 @@ In `src` folder is all what you need to apply this pattern in your project.
 ## How to create new models, views and controllers?
 
 ### Models
-Models should implement [Model interface](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/core/Model.java). This interface is like an [observable] and has three methods that must be implemented: "attach", "detach" and "notifyViews".
+Models should implement [Model interface](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/core/Model.java). This interface is like an [observable](https://www.javaworld.com/article/2077258/observer-and-observable.html) and has three methods that must be implemented: "attach", "detach" and "notifyViews".
 
 ### Views
 Views should implement [View interface](https://github.com/williamniemiec/MVC-in-Java/blob/master/src/core/View.java). This interface just have one method that must be implemented: "update".
@@ -97,3 +102,6 @@ The MVC structure is in `src` folder. In it, there are three folders and one fil
 
 ## Example
 To be clear how the framework works I made a small application that consists of a scheduler, being possible to create new events and see the ones already created. It is located in [example](https://github.com/williamniemiec/MVC-in-Java/tree/master/example) folder.
+
+## References
+- Freeman, Eric, Elisabeth Robson, Kathy Sierra, and Bert Bates. 2004. Head First design patterns. Sebastopol, CA: O'Reilly.
