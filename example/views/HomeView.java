@@ -1,61 +1,75 @@
 package views;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
+
 import controllers.HomeController;
+import core.Model;
+import core.View;
 
 
 /**
- * View associated with HomeController. It will be responsible for program's 
+ * View associated with {@link HomeController}. It will be responsible for program's 
  * main screen view.
  */
 @SuppressWarnings("serial")
-public class HomeView extends JFrame implements View
+public class HomeView extends JPanel implements View
 {
 	//-----------------------------------------------------------------------
 	//		Attributes
 	//-----------------------------------------------------------------------
+	@SuppressWarnings("unused")
 	private HomeController homeController;
-	private JPanel contentPane;
+	private JFrame mainFrame;
+	private final static int MAIN_FRAME_WIDTH = 500;
+	private final static int MAIN_FRAME_HEIGHT = 350;
+	private final static int MAIN_FRAME_X = 100;
+	private final static int MAIN_FRAME_Y = 100;
 	
 	
 	//-----------------------------------------------------------------------
 	//		Constructor
 	//-----------------------------------------------------------------------
 	/**
-	 * @param homeController Controller of this view
+	 * Initializes the view responsible for program's main screen.
+	 * 
+	 * @param homeController Controller responsible for this view
+	 * @param mainFrame Main frame / window of the application
 	 */
-	public HomeView(HomeController homeController) 
+	public HomeView(HomeController homeController, JFrame mainFrame)
 	{
 		this.homeController = homeController;
+		this.mainFrame = mainFrame;
 		
-		make_frame();
+		make_mainFrame();
 		make_tabs();
 	}
 	
-
+	
 	//-----------------------------------------------------------------------
 	//		Methods
 	//-----------------------------------------------------------------------
-	/**
-	 * Displays home view on screen.
-	 */
-	public void run() { this.setVisible(true); }
+	@Override
+	public void update(Model model, Object data) 
+	{}
 	
 	/**
-	 * Creates view's frame.
+	 * Configures the main frame of the application.
 	 */
-	private void make_frame()
+	private void make_mainFrame()
 	{
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 463, 344);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		mainFrame.setOpacity(1.0f);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setBounds(MAIN_FRAME_X, MAIN_FRAME_Y, MAIN_FRAME_WIDTH, MAIN_FRAME_HEIGHT);
+		mainFrame.setMinimumSize(new Dimension(MAIN_FRAME_WIDTH, MAIN_FRAME_HEIGHT));
+		
+		
+		setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLayout(new BorderLayout(0, 0));
 	}
 	
 	/**
@@ -66,9 +80,6 @@ public class HomeView extends JFrame implements View
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("New event", homeController.getNewEventView());
 		tabbedPane.addTab("Events", homeController.getEventListView());
-		contentPane.add(tabbedPane, BorderLayout.CENTER);
+		add(tabbedPane, BorderLayout.CENTER);
 	}
-	
-	@Override
-	public void close() {  }
 }

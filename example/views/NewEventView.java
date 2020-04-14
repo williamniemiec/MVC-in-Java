@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 import controllers.NewEventController;
+import core.Model;
+import core.View;
 import models.Frequency;
 import models.SchedulerEvent;
 import models.SchedulerUtil;
@@ -65,7 +67,8 @@ public class NewEventView extends JPanel implements View
 	//		Methods
 	//-----------------------------------------------------------------------
 	@Override
-	public void close() {  }
+	public void update(Model model, Object data) 
+	{}
 	
 	/**
 	 * Reset all fields.

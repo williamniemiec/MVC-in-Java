@@ -24,7 +24,7 @@ public class HomeController extends Controller
 	@Override
 	public void run()
 	{
-		// Initialize HomeView
+		// Initializes HomeView
 		homeView = new HomeView(this, mainFrame);
 		addView("HomeView", homeView);
 		

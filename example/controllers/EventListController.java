@@ -3,6 +3,8 @@ package controllers;
 import java.util.Vector;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import core.Controller;
 import models.SchedulerIO;
 import views.EventListView;
 
@@ -10,7 +12,7 @@ import views.EventListView;
 /**
  * Responsible for {@link EventListView} behavior.
  */
-public class EventListController implements Controller 
+public class EventListController extends Controller 
 {
 	//-----------------------------------------------------------------------
 	//		Attributes
@@ -27,6 +29,7 @@ public class EventListController implements Controller
 	{
 		table = new JTable(getDataColumns(), getNameColumns());
 		eventListView = new EventListView(this, table);
+//		addView("EventListView", eventListView);
 	}
 	
 	/**

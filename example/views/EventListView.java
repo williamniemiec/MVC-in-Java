@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import controllers.EventListController;
+import core.Model;
+import core.View;
 
 
 /**
@@ -42,6 +44,11 @@ public class EventListView extends JPanel implements View
 	//-----------------------------------------------------------------------
 	//		Methods
 	//-----------------------------------------------------------------------
+	@Override
+	public void update(Model model, Object data) 
+	{}
+	
+	
 	/**
 	 * Creates view's frame.
 	 */
@@ -50,8 +57,4 @@ public class EventListView extends JPanel implements View
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane, BorderLayout.CENTER);
 	}
-
-
-	@Override
-	public void close() { }
 }

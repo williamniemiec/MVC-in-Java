@@ -1,6 +1,8 @@
 package controllers;
 
 import javax.swing.JOptionPane;
+
+import core.Controller;
 import models.SchedulerEvent;
 import models.SchedulerIO;
 import views.EventListView;
@@ -10,7 +12,7 @@ import views.NewEventView;
 /**
  * Responsible for {@link NewEventView} behavior.
  */
-public class NewEventController implements Controller 
+public class NewEventController extends Controller 
 {
 	//-----------------------------------------------------------------------
 	//		Attributes
@@ -31,6 +33,7 @@ public class NewEventController implements Controller
 	public NewEventController(EventListController eventListController) 
 	{
 		this.eventListController = eventListController;
+		
 	}
 	
 	
@@ -41,6 +44,7 @@ public class NewEventController implements Controller
 	public void run() 
 	{
 		newEventView = new NewEventView(this);
+//		addView("NewEventView", newEventView);
 	}
 	
 	/**
