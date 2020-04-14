@@ -1,7 +1,7 @@
 # MVC in Java
 ![](https://github.com/williamniemiec/MVC-in-Java/blob/master/media/logo/mvc-in-java_logo.jpg?raw=true)
 
-This project aims to provide an MVC Java framework for you to use in your projects. If you want to see an example there is a simple and complete example about a scheduler in "example" folder.
+This project aims to provide an MVC Java framework for you to use in your projects. If you want to see an example there is a simple and complete example about a scheduler in [example](https://github.com/williamniemiec/MVC-in-Java/tree/master/example) folder.
 
 <hr />
 
