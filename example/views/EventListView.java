@@ -1,6 +1,8 @@
 package views;
 
 import java.awt.BorderLayout;
+
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -46,8 +48,12 @@ public class EventListView extends JPanel implements View
 	//-----------------------------------------------------------------------
 	@Override
 	public void update(Model model, Object data) 
-	{}
-	
+	{
+		if (data != null) {
+			String notice = (String) data;
+			JOptionPane.showMessageDialog(this, notice);
+		}
+	}
 	
 	/**
 	 * Creates view's frame.

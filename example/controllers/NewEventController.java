@@ -44,7 +44,6 @@ public class NewEventController extends Controller
 	public void run() 
 	{
 		newEventView = new NewEventView(this);
-//		addView("NewEventView", newEventView);
 	}
 	
 	/**
@@ -62,10 +61,13 @@ public class NewEventController extends Controller
 		metadata[4] = event.getAlarm() ? "ON" : "OFF";
 
 		try {
-			SchedulerIO.saveEvent(event);
+			SchedulerIO schedulerIO = new SchedulerIO();
+			schedulerIO.attach(newEventView);
+			schedulerIO.saveEvent(event);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERROR", e.getMessage(), JOptionPane.ERROR_MESSAGE);
 		}
+		
 		
 		eventListController.addNewRow(metadata);
 	}

@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -68,7 +69,12 @@ public class NewEventView extends JPanel implements View
 	//-----------------------------------------------------------------------
 	@Override
 	public void update(Model model, Object data) 
-	{}
+	{
+		if (data != null) {
+			String notice = (String) data;
+			JOptionPane.showMessageDialog(null, notice);
+		}
+	}
 	
 	/**
 	 * Reset all fields.

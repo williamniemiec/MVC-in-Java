@@ -29,7 +29,6 @@ public class EventListController extends Controller
 	{
 		table = new JTable(getDataColumns(), getNameColumns());
 		eventListView = new EventListView(this, table);
-//		addView("EventListView", eventListView);
 	}
 	
 	/**
@@ -84,7 +83,9 @@ public class EventListController extends Controller
 		Vector<Vector<Object>> dataColumns = null;
 
 		try {
-			dataColumns = SchedulerIO.getEvents();
+			SchedulerIO schedulerIO = new SchedulerIO();
+			schedulerIO.attach(eventListView);
+			dataColumns = schedulerIO.getEvents();
 		} catch (Exception ex) { }
 
 		return dataColumns;

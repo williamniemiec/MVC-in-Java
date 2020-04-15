@@ -6,31 +6,58 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
+
+import core.Model;
+import core.View;
 
 
 /**
  * Responsible for reading / writing events saved.
  */
-public class SchedulerIO 
+public class SchedulerIO implements Model
 {
 	//-----------------------------------------------------------------------
 	//		Attributes
 	//-----------------------------------------------------------------------
 	private static final String DIRECTORY = ".";
 	private static final String FILE = "events.txt";
+	private List<View> views = new ArrayList<>();
+	private String notice;
 
 	
 	//-----------------------------------------------------------------------
 	//		Methods
 	//-----------------------------------------------------------------------
+	@Override
+	public void attach(View view) 
+	{
+		views.add(view);
+	}
+
+	@Override
+	public void detach(View view) 
+	{
+		views.remove(view);
+	}
+
+	@Override
+	public void notifyViews() 
+	{
+		for (View v : views) {
+			v.update(this, notice);
+		}
+	}
+	
 	/**
 	 * Saves a {@link SchedulerEvent} in disk in {@link #DIRECTORY}.{@link #FILE}.
 	 * 
 	 * @param event {@link SchedulerEvent Event} to be saved
 	 * @throws Exception If it can't save the event
 	 */
-	public static void saveEvent(SchedulerEvent event) throws Exception 
+	public void saveEvent(SchedulerEvent event) throws Exception 
 	{
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(new File(DIRECTORY, FILE), true));
@@ -38,9 +65,11 @@ public class SchedulerIO
 			writer.newLine();
 			writer.close();
 		} catch (FileNotFoundException fnfe) {
-			throw new Exception("File not found");
+			notice = "File not found"; 
+			notifyViews();
 		} catch (Exception ex) {
-			throw new Exception("Error while writing the file");
+			notice = "Error while writing the file";
+			notifyViews();
 		}
 	}
 
@@ -49,7 +78,7 @@ public class SchedulerIO
 	 * @return List of lists (matrix) of the events
 	 * @throws Exception If it can't read event file
 	 */
-	public static Vector<Vector<Object>> getEvents() throws Exception 
+	public Vector<Vector<Object>> getEvents() throws Exception 
 	{
 		Vector<Vector<Object>> response = new Vector<Vector<Object>>();
 
@@ -72,11 +101,12 @@ public class SchedulerIO
 			}
 
 			reader.close();
-
 		} catch (FileNotFoundException fnfe) {
-			throw new Exception("File not found");
+			notice = "File not found";
+			notifyViews();
 		} catch (Exception ex) {
-			throw new Exception("There was a problem reading the event file");
+			notice = "There was a problem reading the event file";
+			notifyViews();
 		}
 		
 		return response;
